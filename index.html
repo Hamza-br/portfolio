@@ -6,9 +6,311 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamza Bourou - Portfolio</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- We'll add content here in the next steps -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="#home">HB</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Hello, I'm <span class="highlight">Hamza Bourou</span></h1>
+                <div class="typewriter-container">
+                    <span class="typewriter"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    Computer Engineering Student at AIAC | AI Enthusiast
+                </p>
+            </div>
+            <div class="hero-cta">
+                <a href="#projects" class="cta-button">View My Work</a>
+                <a href="#contact" class="cta-button secondary">Contact Me</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:bourou.hamza@aiac.ma">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="particles"></div>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="section-container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="large-text">Hello! I'm Hamza, a Computer Engineering student passionate about AI and Machine Learning.</p>
+                    <p>Currently studying at Mohammed VI International Academy of Civil Aviation, I focus on developing innovative solutions in artificial intelligence and machine learning. With a track record of successful projects and a ranking of 241 Worldwide in IEEExtreme 18.0, I'm constantly pushing the boundaries of what's possible in tech.</p>
+                    <p>My journey includes significant contributions to:</p>
+                    <ul class="achievement-list">
+                        <li>🎯 AI-powered medical diagnosis systems</li>
+                        <li>🚂 Railway infrastructure optimization</li>
+                        <li>🤖 Virtual Reality character development</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <!-- Add your professional photo here -->
+                    <div class="image-wrapper">
+                        <img src="public/images/profile.jpg" alt="Hamza Bourou" class="profile-image">
+                        <div class="image-border"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="skills">
+        <div class="section-container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-content">
+                <div class="skills-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                            <div class="skill-level" data-level="95"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                            <div class="skill-level" data-level="85"></div>
+                        </div>
+                        <!-- Add more programming languages -->
+                    </div>
+                </div>
+    
+                <div class="skills-category">
+                    <h3>Technologies & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Linux</span>
+                        <!-- Add more technologies -->
+                    </div>
+                </div>
+    
+                <div class="skills-category">
+                    <h3>Certifications</h3>
+                    <div class="certification-grid">
+                        <div class="cert-card">
+                            <img src="public/images/ibm-logo.png" alt="IBM">
+                            <h4>Data Science</h4>
+                            <p>IBM</p>
+                        </div>
+                        <div class="cert-card">
+                            <img src="public/images/nvidia-logo.png" alt="NVIDIA">
+                            <h4>Deep Learning</h4>
+                            <p>NVIDIA</p>
+                        </div>
+                        <!-- Add more certifications -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="section-container">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI/ML</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
+                <button class="filter-btn" data-filter="other">Other</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Pulmonary Embolism Project -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-content">
+                        <div class="project-image">
+                            <img src="public/images/projects/pulmonary.jpg" alt="Pulmonary Embolism Detection">
+                        </div>
+                        <div class="project-info">
+                            <h3>Pulmonary Embolism Detection</h3>
+                            <p>AI-powered system for detecting pulmonary embolism with 92.50% accuracy using deep learning.</p>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-title">Accuracy</span>
+                                    <span class="stat-value">92.50%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-title">Dataset</span>
+                                    <span class="stat-value">10K+ Images</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">CUDA</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pneumonia Detection Project -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-content">
+                        <div class="project-image">
+                            <img src="public/images/projects/pneumonia.jpg" alt="Pneumonia Detection">
+                        </div>
+                        <div class="project-info">
+                            <h3>Pneumonia Detection System</h3>
+                            <p>Deep learning-based system for detecting pneumonia in chest X-rays with 87.05% accuracy.</p>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-title">Accuracy</span>
+                                    <span class="stat-value">87.05%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-title">Model</span>
+                                    <span class="stat-value">EfficientNet</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">Tkinter</span>
+                                <span class="tech-tag">CUDA</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect!</h3>
+                    <p>I'm currently looking for new opportunities and my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:bourou.hamza@aiac.ma">bourou.hamza@aiac.ma</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+212612623613">(+212) 06.12.62.36.13</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Casablanca, Morocco</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
     <script src="assets/js/main.js"></script>
 </body>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-social">
+            <a href="https://github.com/yourusername" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://twitter.com/yourusername" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <div class="footer-info">
+            <p>Designed & Built by Hamza Bourou</p>
+            <p>&copy; 2024 All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
 </html>
