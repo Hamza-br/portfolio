@@ -748,3 +748,34 @@ body {
     transform: translateY(-3px);
     background: var(--secondary-color);
 }
+
+.skill-item {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Bold */
+    font-size: 1.2rem;
+    color: #ffffff; /* White text */
+}
+
+.skill-item i {
+    margin-right: 8px;
+    font-size: 1.5rem;
+    color: #ffffff; /* White icons */
+}
+
+.skill-item span {
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.skill-item img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+
+.skill-item {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
