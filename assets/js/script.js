@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const phrases = [
         "Computer Engineering Student",
         "AI Enthusiast",
-        "Problem Solver"
+        "Problem Solver",
+        "Deep Learning Developer",
+        "IEEE Member"
     ];
     
     let currentPhraseIndex = 0;
@@ -39,7 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Start the typewriter effect
-    typeWriter();
+    if (document.querySelector('.typewriter')) {
+        typeWriter();
+    }
     
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -77,8 +81,10 @@ function handleSkillsAnimation() {
 
 // Call these functions when the document is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    initializeSkillLevels();
-    handleSkillsAnimation();
+    if (document.querySelector('.skill-level')) {
+        initializeSkillLevels();
+        handleSkillsAnimation();
+    }
 });
 
 // Projects filtering and animation
@@ -86,84 +92,54 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
-    // Filtering functionality
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
+    if (filterButtons.length && projectCards.length) {
+        // Filtering functionality
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
 
-            const filterValue = button.getAttribute('data-filter');
+                const filterValue = button.getAttribute('data-filter');
 
-            projectCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.8)';
+                projectCards.forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
 
-                setTimeout(() => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 50);
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }, 300);
+                    setTimeout(() => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }, 300);
+                });
             });
         });
-    });
 
-    // Intersection Observer for fade-in animation
-    const observerOptions = {
-        threshold: 0.2
-    };
+        // Intersection Observer for fade-in animation
+        const observerOptions = {
+            threshold: 0.2
+        };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        projectCards.forEach(card => {
+            card.classList.add('fade-in');
+            observer.observe(card);
         });
-    }, observerOptions);
-
-    projectCards.forEach(card => {
-        card.classList.add('fade-in');
-        observer.observe(card);
-    });
-});
-
-// Contact Form Handling
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-
-    // Add loading state to button
-    const submitBtn = this.querySelector('.submit-btn');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitBtn.disabled = true;
-
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-        // Show success message
-        alert('Message sent successfully!');
-        
-        // Reset form
-        this.reset();
-        
-        // Restore button state
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    }, 2000);
+    }
 });
 
 // Smooth scroll for all anchor links
@@ -194,5 +170,27 @@ scrollButton.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
+    });
+});
+
+// EmailJS configuration
+const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_sk700jb';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
     });
 });
