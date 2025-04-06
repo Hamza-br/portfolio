@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamza Bourou - Contact</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/include.js"></script>
+</head>
+<body>
+    <div data-include="header.html"></div>
+
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect!</h3>
+                    <p>I'm currently looking for new opportunities and my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:bourou.hamza@aiac.ma">bourou.hamza@aiac.ma</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+212612623613">(+212) 06.12.62.36.13</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Casablanca, Morocco</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <div class="contact-text">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/Hamza-br" target="_blank">github.com/Hamza-br</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <div class="contact-text">
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/hamza-bourou-64689322b/" target="_blank">linkedin.com/in/hamza-bourou-64689322b</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="contact-form">
+                    <form id="contactForm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required minlength="2">
+                            <small class="error-message" id="name-error"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            <small class="error-message" id="email-error"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required minlength="3">
+                            <small class="error-message" id="subject-error"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required minlength="10"></textarea>
+                            <small class="error-message" id="message-error"></small>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div data-include="footer.html"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with the public key from config
+            emailjs.init(CONFIG.emailjs.publicKey);
+        })();
+
+        // Contact form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            
+            // Custom form validation
+            const validateForm = () => {
+                let isValid = true;
+                const errorMessages = {
+                    name: "Please enter your name (min 2 characters)",
+                    email: "Please enter a valid email address",
+                    subject: "Please enter a subject (min 3 characters)",
+                    message: "Please enter your message (min 10 characters)"
+                };
+                
+                // Clear previous error messages
+                document.querySelectorAll('.error-message').forEach(elem => {
+                    elem.textContent = '';
+                });
+                
+                // Check each field
+                const fields = ['name', 'email', 'subject', 'message'];
+                fields.forEach(field => {
+                    const input = document.getElementById(field);
+                    const errorElem = document.getElementById(`${field}-error`);
+                    
+                    if (!input.checkValidity()) {
+                        errorElem.textContent = errorMessages[field];
+                        errorElem.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        errorElem.style.display = 'none';
+                    }
+                });
+                
+                return isValid;
+            };
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validate form before submission
+                    if (!validateForm()) {
+                        return false;
+                    }
+                    
+                    // Show loading state on button
+                    const submitBtn = this.querySelector('.submit-btn');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+                    submitBtn.disabled = true;
+                    
+                    const formData = {
+                        name: this.name.value,
+                        email: this.email.value,
+                        subject: this.subject.value,
+                        message: this.message.value
+                    };
+                    
+                    // Use the service and template IDs from config
+                    emailjs.send(CONFIG.emailjs.serviceId, CONFIG.emailjs.templateId, formData)
+                        .then(function() {
+                            // Create success notification
+                            const notification = document.createElement('div');
+                            notification.className = 'notification success';
+                            notification.innerHTML = '<i class="fas fa-check-circle"></i> Your message has been sent successfully!';
+                            document.body.appendChild(notification);
+                            
+                            // Remove notification after 5 seconds
+                            setTimeout(() => {
+                                notification.classList.add('fade-out');
+                                setTimeout(() => {
+                                    document.body.removeChild(notification);
+                                }, 500);
+                            }, 5000);
+                            
+                            contactForm.reset();
+                            // Restore button state
+                            submitBtn.innerHTML = originalBtnText;
+                            submitBtn.disabled = false;
+                        }, function(error) {
+                            console.error('Error sending email:', error);
+                            
+                            // Create error notification
+                            const notification = document.createElement('div');
+                            notification.className = 'notification error';
+                            notification.innerHTML = '<i class="fas fa-exclamation-circle"></i> There was an error sending your message. Please try again later.';
+                            document.body.appendChild(notification);
+                            
+                            // Remove notification after 5 seconds
+                            setTimeout(() => {
+                                notification.classList.add('fade-out');
+                                setTimeout(() => {
+                                    document.body.removeChild(notification);
+                                }, 500);
+                            }, 5000);
+                            
+                            // Restore button state
+                            submitBtn.innerHTML = originalBtnText;
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
