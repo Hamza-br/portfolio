@@ -1,4 +1,28 @@
 # .gitignore
-.DS_Store
+# Dependencies
 node_modules/
 .env
+
+# IDE/Editor files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Build
+/dist
+/build
+
+# Sensitive information
+**/config.js
+**/secrets.js
+
+# Temporary files
+.DS_Store
+.thumbs.db
+Thumbs.db
+
+# Backup files
+**/*.bak
+**/*.backup

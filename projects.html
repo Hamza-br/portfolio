@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamza Bourou - Projects</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/include.js"></script>
+</head>
+<body>
+    <div data-include="header.html"></div>
+
+    <section id="projects" class="projects">
+        <div class="section-container">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI/ML</button>
+                <button class="filter-btn" data-filter="vr">VR/AR</button>
+                <button class="filter-btn" data-filter="other">Other</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Pulmonary Embolism Project -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-content">
+                        <div class="project-image">
+                            <img src="public/images/projects/pulmonary.jpg" alt="Pulmonary Embolism Detection">
+                        </div>
+                        <div class="project-info">
+                            <h3>Pulmonary Embolism Detection</h3>
+                            <p>AI-powered system for detecting pulmonary embolism with 92.50% accuracy using deep learning.</p>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-title">Accuracy</span>
+                                    <span class="stat-value">92.50%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-title">Dataset</span>
+                                    <span class="stat-value">DICOM Images</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">CUDA</span>
+                                <span class="tech-tag">Tkinter</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pneumonia Detection Project -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-content">
+                        <div class="project-image">
+                            <img src="public/images/projects/pneumonia.jpg" alt="Pneumonia Detection">
+                        </div>
+                        <div class="project-info">
+                            <h3>Pneumonia Detection System</h3>
+                            <p>Deep learning-based system for detecting pneumonia in chest X-rays with 87.05% accuracy.</p>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-title">Accuracy</span>
+                                    <span class="stat-value">87.05%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-title">Model</span>
+                                    <span class="stat-value">EfficientNet</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">Tkinter</span>
+                                <span class="tech-tag">CUDA</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VR Character Project -->
+                <div class="project-card" data-category="vr">
+                    <div class="project-content">
+                        <div class="project-image">
+                            <img src="public/images/projects/vr-character.jpg" alt="VR Character Development">
+                        </div>
+                        <div class="project-info">
+                            <h3>Interactive VR Character</h3>
+                            <p>Development of an interactive VR character powered by a sentence similarity model, connected to Groq with lip synchronization.</p>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-title">Framework</span>
+                                    <span class="stat-value">Unity</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-title">Integration</span>
+                                    <span class="stat-value">Groq API</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Unity</span>
+                                <span class="tech-tag">C#</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">LLM</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Recognition Project -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-content">
+                        <div class="project-image">
+                            <img src="public/images/projects/mnist.jpg" alt="Image Recognition">
+                        </div>
+                        <div class="project-info">
+                            <h3>Image Recognition with Neural Networks</h3>
+                            <p>Implementation of a Multilayer Perceptron for handwritten digit classification using the MNIST dataset.</p>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-title">Type</span>
+                                    <span class="stat-value">MLP</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-title">Dataset</span>
+                                    <span class="stat-value">MNIST</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NumPy</span>
+                                <span class="tech-tag">Mathematics</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div data-include="footer.html"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init(CONFIG.emailjs.publicKey);
+        })();
+    </script>
+</body>
+</html> 
