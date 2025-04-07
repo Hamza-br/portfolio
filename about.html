@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/include.js"></script>
 </head>
@@ -15,18 +17,18 @@
 
     <section id="about" class="about">
         <div class="section-container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title" data-i18n="about-me">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p class="large-text">Hello! I'm Hamza, a Computer Engineering student passionate about AI and Machine Learning.</p>
-                    <p>Currently studying at Mohammed VI International Academy of Civil Aviation, I'm passionate about software development and problem-solving through machine learning and advanced algorithms.</p>
-                    <p>I have hands-on experience in Python, C++, Java, C#, and R, with a strong foundation in algorithms, data structures, and object-oriented design. My expertise extends to AI, data science, and software engineering, and I am currently deepening my knowledge in deep learning to tackle real-world challenges.</p>
-                    <p>My goal is to leverage my skills in a dynamic environment, contributing to innovative projects while continuously learning and growing.</p>
-                    <p>I am eager to apply my skills and grow through a meaningful internship opportunity.</p>
+                    <p class="large-text" data-i18n="about-intro">Hello! I'm Hamza, a Computer Engineering student passionate about AI and Machine Learning.</p>
+                    <p data-i18n="about-description-1">Currently studying at Mohammed VI International Academy of Civil Aviation, I'm passionate about software development and problem-solving through machine learning and advanced algorithms.</p>
+                    <p data-i18n="about-description-2">I have hands-on experience in Python, C++, Java, C#, and R, with a strong foundation in algorithms, data structures, and object-oriented design. My expertise extends to AI, data science, and software engineering, and I am currently deepening my knowledge in deep learning to tackle real-world challenges.</p>
+                    <p data-i18n="about-description-3">My goal is to leverage my skills in a dynamic environment, contributing to innovative projects while continuously learning and growing.</p>
+                    <p data-i18n="about-description-4">I am eager to apply my skills and grow through a meaningful internship opportunity.</p>
                     <div class="achievement-container">
-                        <h3>Achievements</h3>
+                        <h3 data-i18n="latest-achievements">Latest Achievements</h3>
                         <ul class="achievement-list">
-                            <li>🏆 Ranked 241 Worldwide in IEEExtreme 18.0, a global 24-hour programming competition organized by IEEE</li>
+                            <li data-i18n="achievement-1">🏆 Ranked 114 Worldwide in IEEExtreme 18.0, a global 24-hour programming competition organized by IEEE</li>
                         </ul>
                     </div>
                 </div>
@@ -34,47 +36,71 @@
         </div>
     </section>
     
-    <section id="education" class="education">
+    <section id="education" class="education dark-bg">
         <div class="section-container">
-            <h2 class="section-title">Education</h2>
+            <h2 class="section-title text-light" data-i18n="education">Education</h2>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2023 - 2026</div>
-                    <div class="timeline-content">
-                        <h3>Computer Engineering Degree</h3>
-                        <h4>Mohammed VI International Academy of Civil Aviation</h4>
-                        <p>2nd year Computer Engineering degree.</p>
-                    </div>
-                </div>
+                <div class="timeline-line"></div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2022 - 2023</div>
-                    <div class="timeline-content">
-                        <h3>Electrical Engineering</h3>
-                        <h4>National School of Electricity and Mechanics</h4>
-                        <p>1st year in electrical engineering, embedded systems, and telecommunications.</p>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date text-highlight">
+                            2023 - 2026
+                        </div>
+                    </div>
+                    <div class="timeline-content card-style">
+                        <h3 class="degree-title text-primary" data-i18n="degree-1">Computer Science Engineering Degree</h3>
+                        <h4 class="institution text-secondary">
+                            <i class="fas fa-university"></i>
+                            <span data-i18n="institution-1">Mohammed VI International Academy of Civil Aviation</span>
+                        </h4>
+                        <p class="description" data-i18n="degree-1-desc">2nd year Computer Science Engineering degree.</p>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2020 - 2022</div>
-                    <div class="timeline-content">
-                        <h3>Preparatory Classes for Grandes Écoles</h3>
-                        <h4>Omar Ibn Al Khattab High School</h4>
-                        <p>MPSI then MP.</p>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date text-highlight">2022 - 2023</div>
+                    </div>
+                    <div class="timeline-content card-style">
+                        <h3 class="degree-title text-primary" data-i18n="degree-2">Electrical Engineering</h3>
+                        <h4 class="institution text-secondary">
+                            <i class="fas fa-university"></i>
+                            <span data-i18n="institution-2">National School of Electricity and Mechanics</span>
+                        </h4>
+                        <p class="description" data-i18n="degree-2-desc">1st year in electrical engineering, embedded systems, and telecommunications.</p>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2019 - 2020</div>
-                    <div class="timeline-content">
-                        <h3>Scientific Baccalaureate</h3>
-                        <h4>Moulay Ismail High School</h4>
-                        <p>Mathematics option, Grade: Good.</p>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date text-highlight">2020 - 2022</div>
+                    </div>
+                    <div class="timeline-content card-style">
+                        <h3 class="degree-title text-primary" data-i18n="degree-3">Preparatory Classes for Grandes Écoles</h3>
+                        <h4 class="institution text-secondary">
+                            <i class="fas fa-university"></i>
+                            <span data-i18n="institution-3">Omar Ibn Al Khattab High School</span>
+                        </h4>
+                        <p class="description" data-i18n="degree-3-desc">Mathematics and Physics option.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date text-highlight">2019 - 2020</div>
+                    </div>
+                    <div class="timeline-content card-style">
+                        <h3 class="degree-title text-primary" data-i18n="degree-4">Scientific Baccalaureate</h3>
+                        <h4 class="institution text-secondary">
+                            <i class="fas fa-university"></i>
+                            <span data-i18n="institution-4">Moulay Ismail High School</span>
+                        </h4>
+                        <p class="description" data-i18n="degree-4-desc">Mathematics.</p>
                     </div>
                 </div>
             </div>
@@ -83,10 +109,10 @@
     
     <section id="skills" class="skills">
         <div class="section-container">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title" data-i18n="technical-skills">Technical Skills</h2>
             <div class="skills-content">
                 <div class="skills-category">
-                    <h3>Programming Languages:</h3>
+                    <h3 data-i18n="programming-languages">Programming Languages:</h3>
                     <div class="skill-grid">
                         <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
                         <div class="skill-item"><i class="fab fa-java"></i><span>Java</span></div>
@@ -101,7 +127,7 @@
                 </div>
 
                 <div class="skills-category">
-                    <h3><i class="fas fa-cloud"></i> Cloud Technologies</h3>
+                    <h3><i class="fas fa-cloud"></i> <span data-i18n="cloud-computing">Cloud Computing Technologies</span></h3>
                     <div class="skill-tags">
                         <div class="skill-tag">
                             <i class="fa-brands fa-aws fa-xl" style="color: #FF9900;"></i>
@@ -111,35 +137,83 @@
                             <i class="fa-brands fa-microsoft fa-xl" style="color: #0078D4;"></i>
                             <span>Microsoft Azure</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3><i class="fas fa-cogs"></i> <span data-i18n="technologies">Technologies</span></h3>
+                    <div class="skill-tags">
                         <div class="skill-tag">
-                            <i class="fa-brands fa-google fa-xl" style="color: #4285F4;"></i>
-                            <span>Google Cloud</span>
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="assets\icons\pytorch-svgrepo-com.svg" style="width: 1.5em; height: 2em;">
+                                <br>
+                                <span>PyTorch</span>
+                            </div>
+                        </div>
+                        <div class="skill-tag">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <br>
+                                <i class="fab fa-git-alt fa-xl" style="color: #F05032;"></i>
+                                <br>
+                                <span>Git</span>
+                            </div>
+                        </div>
+                        <div class="skill-tag">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <br>
+                                <i class="fab fa-linux fa-xl" style="color: #FCC624;"></i>
+                                <br>
+                                <span>Linux</span>
+                            </div>
+                        </div>
+                        <div class="skill-tag">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <br>
+                                <i class="fab fa-docker fa-xl" style="color: #2496ED;"></i>
+                                <br>
+                                <span>Docker</span>
+                            </div>
+                        </div>
+                        <div class="skill-tag">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <br>
+                                <i class="fab fa-unity fa-xl" style="color: #000000;"></i>
+                                <br>
+                                <span>Unity</span>
+                            </div>
+                        </div>
+                        <div class="skill-tag">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <img src="assets\icons\icons8-flask.svg" style="width: 2.5em; height: 3em;">
+                                <span>Flask</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="skills-category">
-                    <h3>Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Unity</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">PyTorch</span>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3>Certifications</h3>
+                    <h3 data-i18n="certifications">Certifications</h3>
                     <div class="certification-grid">
-                        <div class="cert-card"><a href="#"><h4>IBM - What is Data Science?</h4></a></div>
-                        <div class="cert-card"><a href="#"><h4>IBM - Tools for Data Science</h4></a></div>
-                        <div class="cert-card"><a href="#"><h4>Machine Learning Specialization</h4></a></div>
-                        <div class="cert-card"><a href="#"><h4>Nvidia - Fundamentals of Deep Learning</h4></a></div>
-                        <div class="cert-card"><a href="#"><h4>Google - Generative AI</h4></a></div>
-                        <div class="cert-card"><a href="#"><h4>Google - Foundations of Cybersecurity</h4></a></div>
-                        <div class="cert-card"><a href="#"><h4>Cisco - Network Associate</h4></a></div>
+                        <div class="cert-card">
+                            <img src="assets/icons/ibm-svgrepo-com.svg" style="width: 4em; height: 4em; filter: brightness(0) saturate(100%) invert(80%) sepia(11%) saturate(2044%) hue-rotate(182deg) brightness(96%) contrast(96%);">
+                            <a href="https://www.coursera.org/account/accomplishments/records/3SSB3PQLDMEJ" style="text-decoration: none;"><h4 style="color: #E6F1FF; font-size: 1.2em;">IBM - What is Data Science?</h4></a>
+                        </div>
+                        <div class="cert-card">
+                            <img src="assets/icons/ibm-svgrepo-com.svg" style="width: 4em; height: 4em; filter: brightness(0) saturate(100%) invert(80%) sepia(11%) saturate(2044%) hue-rotate(182deg) brightness(96%) contrast(96%);">
+                            <a href="https://www.coursera.org/account/accomplishments/records/ZRXPVZ88YP9R" style="text-decoration: none;"><h4 style="color: #E6F1FF; font-size: 1.2em;">IBM - Python for Data Science, AI & Development</h4></a>
+                        </div>
+                        <div class="cert-card">
+                            <img src="assets/icons/deeplearingAI.svg" style="width: 5em; height: 5em; filter: brightness(0) saturate(100%) invert(80%) sepia(11%) saturate(2044%) hue-rotate(182deg) brightness(96%) contrast(96%);">
+                            <a href="https://www.coursera.org/account/accomplishments/records/9QHB35XUNP9X" style="text-decoration: none;"><h4 style="color: #E6F1FF; font-size: 1.2em;">DeepLearning.AI - Deep Learning Specialization</h4></a>
+                        </div>
+                        <div class="cert-card">
+                            <img src="assets/icons/nvidia-logo-svgrepo-com.svg" style="width: 6em; height: 5em; filter: brightness(0) saturate(100%) invert(80%) sepia(11%) saturate(2044%) hue-rotate(182deg) brightness(96%) contrast(96%);">
+                            <a href="https://courses.nvidia.com/certificates/3f0f43683ef74c2ea98da60626607be8/" style="text-decoration: none;"><h4 style="color: #E6F1FF; font-size: 1.2em;">NVIDIA - Fundamentals of Deep Learning</h4></a>
+                        </div>
+                        <div class="cert-card">
+                            <img src="assets/icons/cisco-svgrepo-com.svg" style="width: 5em; height: 4em; filter: brightness(0) saturate(100%) invert(80%) sepia(11%) saturate(2044%) hue-rotate(182deg) brightness(96%) contrast(96%);">
+                            <a href="#" style="text-decoration: none;"><h4 style="color: #E6F1FF; font-size: 1.2em;" data-i18n="cert-cisco">Cisco - CCNAv7: Introduction to Networks</h4></a>
+                        </div>
                     </div>
                 </div>
             </div>

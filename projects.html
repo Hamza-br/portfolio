@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/include.js"></script>
 </head>
@@ -15,13 +17,13 @@
 
     <section id="projects" class="projects">
         <div class="section-container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title" data-i18n="featured-projects">Featured Projects</h2>
             
             <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ai">AI/ML</button>
-                <button class="filter-btn" data-filter="vr">VR/AR</button>
-                <button class="filter-btn" data-filter="other">Other</button>
+                <button class="filter-btn active" data-filter="all" data-i18n="filter-all">All</button>
+                <button class="filter-btn" data-filter="ai" data-i18n="filter-ai">AI/ML</button>
+                <button class="filter-btn" data-filter="vr" data-i18n="filter-vr">VR/AR</button>
+                <button class="filter-btn" data-filter="other" data-i18n="filter-other">Other</button>
             </div>
 
             <div class="projects-grid">
@@ -32,15 +34,15 @@
                             <img src="public/images/projects/pulmonary.jpg" alt="Pulmonary Embolism Detection">
                         </div>
                         <div class="project-info">
-                            <h3>Pulmonary Embolism Detection</h3>
-                            <p>AI-powered system for detecting pulmonary embolism with 92.50% accuracy using deep learning.</p>
+                            <h3 data-i18n="project-pe">Pulmonary Embolism Detection</h3>
+                            <p data-i18n="project-pe-desc">AI-powered system for detecting pulmonary embolism with 92.50% accuracy using deep learning.</p>
                             <div class="project-stats">
                                 <div class="stat">
-                                    <span class="stat-title">Accuracy</span>
+                                    <span class="stat-title" data-i18n="accuracy">Accuracy</span>
                                     <span class="stat-value">92.50%</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-title">Dataset</span>
+                                    <span class="stat-title" data-i18n="dataset">Dataset</span>
                                     <span class="stat-value">DICOM Images</span>
                                 </div>
                             </div>
@@ -70,15 +72,15 @@
                             <img src="public/images/projects/pneumonia.jpg" alt="Pneumonia Detection">
                         </div>
                         <div class="project-info">
-                            <h3>Pneumonia Detection System</h3>
-                            <p>Deep learning-based system for detecting pneumonia in chest X-rays with 87.05% accuracy.</p>
+                            <h3 data-i18n="project-pn">Pneumonia Detection System</h3>
+                            <p data-i18n="project-pn-desc">Deep learning-based system for detecting pneumonia in chest X-rays with 87.05% accuracy.</p>
                             <div class="project-stats">
                                 <div class="stat">
-                                    <span class="stat-title">Accuracy</span>
+                                    <span class="stat-title" data-i18n="accuracy">Accuracy</span>
                                     <span class="stat-value">87.05%</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-title">Model</span>
+                                    <span class="stat-title" data-i18n="model">Model</span>
                                     <span class="stat-value">EfficientNet</span>
                                 </div>
                             </div>
@@ -107,15 +109,15 @@
                             <img src="public/images/projects/vr-character.jpg" alt="VR Character Development">
                         </div>
                         <div class="project-info">
-                            <h3>Interactive VR Character</h3>
-                            <p>Development of an interactive VR character powered by a sentence similarity model, connected to Groq with lip synchronization.</p>
+                            <h3 data-i18n="project-vr">Interactive VR Character</h3>
+                            <p data-i18n="project-vr-desc">Development of an interactive VR character powered by a sentence similarity model, connected to Groq with lip synchronization.</p>
                             <div class="project-stats">
                                 <div class="stat">
-                                    <span class="stat-title">Framework</span>
+                                    <span class="stat-title" data-i18n="framework">Framework</span>
                                     <span class="stat-value">Unity</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-title">Integration</span>
+                                    <span class="stat-title" data-i18n="integration">Integration</span>
                                     <span class="stat-value">Groq API</span>
                                 </div>
                             </div>
@@ -144,15 +146,15 @@
                             <img src="public/images/projects/mnist.jpg" alt="Image Recognition">
                         </div>
                         <div class="project-info">
-                            <h3>Image Recognition with Neural Networks</h3>
-                            <p>Implementation of a Multilayer Perceptron for handwritten digit classification using the MNIST dataset.</p>
+                            <h3 data-i18n="project-ir">Image Recognition with Neural Networks</h3>
+                            <p data-i18n="project-ir-desc">Implementation of a Multilayer Perceptron for handwritten digit classification using the MNIST dataset.</p>
                             <div class="project-stats">
                                 <div class="stat">
-                                    <span class="stat-title">Type</span>
+                                    <span class="stat-title" data-i18n="type">Type</span>
                                     <span class="stat-value">MLP</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-title">Dataset</span>
+                                    <span class="stat-title" data-i18n="dataset">Dataset</span>
                                     <span class="stat-value">MNIST</span>
                                 </div>
                             </div>

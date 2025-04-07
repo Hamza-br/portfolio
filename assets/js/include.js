@@ -26,6 +26,38 @@ function includeHTML() {
                     }
                     document.head.appendChild(newScript);
                 });
+                
+                // Apply current language to included elements
+                if (typeof getCurrentLanguage === 'function' && typeof setLanguage === 'function') {
+                    const currentLang = getCurrentLanguage();
+                    const translatableElements = element.querySelectorAll('[data-i18n]');
+                    
+                    translatableElements.forEach(el => {
+                        const key = el.getAttribute('data-i18n');
+                        if (translations[currentLang] && translations[currentLang][key]) {
+                            el.textContent = translations[currentLang][key];
+                        }
+                    });
+                    
+                    // Process placeholder attributes
+                    const placeholderElements = element.querySelectorAll('[data-i18n-placeholder]');
+                    placeholderElements.forEach(el => {
+                        const key = el.getAttribute('data-i18n-placeholder');
+                        if (translations[currentLang] && translations[currentLang][key]) {
+                            el.placeholder = translations[currentLang][key];
+                        }
+                    });
+                    
+                    // Set active class on language buttons
+                    const langButtons = element.querySelectorAll('.language-btn');
+                    langButtons.forEach(btn => {
+                        if (btn.getAttribute('data-lang') === currentLang) {
+                            btn.classList.add('active');
+                        } else {
+                            btn.classList.remove('active');
+                        }
+                    });
+                }
             })
             .catch(error => {
                 console.error(`Error including HTML file ${file}:`, error);
