@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/include.js"></script>
 </head>
@@ -17,22 +19,25 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Hello, I'm <span class="highlight">Hamza Bourou</span></h1>
+                <h1><span data-i18n="hello-im">Hello, I'm</span> <span class="highlight">Hamza Bourou</span></h1>
                 <div class="typewriter-container">
                     <span class="typewriter"></span>
                     <span class="cursor">|</span>
                 </div>
-                <p class="hero-description">
+                <p class="hero-description" data-i18n="hero-description">
                     Computer Engineering Student at AIAC | AI Enthusiast | Problem Solver
                 </p>
             </div>
             <div class="hero-cta">
-                <a href="projects.html" class="cta-button">View My Work</a>
-                <a href="contact.html" class="cta-button secondary">Contact Me</a>
+                <a href="projects.html" class="cta-button" data-i18n="view-work">View My Work</a>
+                <a href="contact.html" class="cta-button secondary" data-i18n="contact-me">Contact Me</a>
             </div>
             <div class="social-links">
                 <a href="https://github.com/Hamza-br" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.kaggle.com/hamzabr0" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-kaggle"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/hamza-bourou-64689322b/" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin"></i>

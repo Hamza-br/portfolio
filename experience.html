@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
     <script src="assets/js/script.js" defer></script>
     <script src="assets/js/include.js"></script>
 </head>
@@ -15,12 +17,12 @@
 
     <section id="experience" class="experience">
         <div class="section-container">
-            <h2 class="section-title">Experience</h2>
+            <h2 class="section-title" data-i18n="experience">Experience</h2>
             
             <div class="experience-tabs">
-                <button class="tab-btn active" data-tab="work">Work Experience</button>
-                <button class="tab-btn" data-tab="projects">Technical Projects</button>
-                <button class="tab-btn" data-tab="activities">Extracurricular Activities</button>
+                <button class="tab-btn active" data-tab="work" data-i18n="work-experience">Work Experience</button>
+                <button class="tab-btn" data-tab="projects" data-i18n="technical-projects">Technical Projects</button>
+                <button class="tab-btn" data-tab="activities" data-i18n="extracurricular">Extracurricular Activities</button>
             </div>
             
             <div class="experience-content">
@@ -31,13 +33,13 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-date">July - Sept 2024</div>
                             <div class="timeline-content">
-                                <h3>Research and Development Intern</h3>
-                                <h4>FORGES DE BAZAS - Casablanca, Morocco</h4>
-                                <p>Development of an interactive VR character powered by a sentence similarity model, connected to Groq and lip synchronization.</p>
+                                <h3 data-i18n="intern-rd">Research and Development Intern</h3>
+                                <h4 data-i18n="intern-rd-company">FORGES DE BAZAS - Casablanca, Morocco</h4>
+                                <p data-i18n="intern-rd-desc">Development of an interactive VR character powered by a sentence similarity model, connected to Groq and lip synchronization.</p>
                                 <div class="timeline-tags">
-                                    <span class="tag">VR Development</span>
-                                    <span class="tag">AI</span>
-                                    <span class="tag">Natural Language Processing</span>
+                                    <span class="tag" data-i18n="tag-vr">VR Development</span>
+                                    <span class="tag" data-i18n="tag-ai">AI</span>
+                                    <span class="tag" data-i18n="tag-nlp">Natural Language Processing</span>
                                 </div>
                             </div>
                         </div>
@@ -46,17 +48,17 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-date">June - July 2023</div>
                             <div class="timeline-content">
-                                <h3>Professional Intern</h3>
-                                <h4>ONCF (National Railway Office) - Meknès, Morocco</h4>
-                                <p>Northern Infrastructure and Traffic Regional Directorate (DRICN)</p>
+                                <h3 data-i18n="intern-prof">Professional Intern</h3>
+                                <h4 data-i18n="intern-prof-company">ONCF (National Railway Office) - Meknès, Morocco</h4>
+                                <p data-i18n="intern-prof-dept">Northern Infrastructure and Traffic Regional Directorate (DRICN)</p>
                                 <ul>
-                                    <li>Analysis of railway planning systems and infrastructures.</li>
-                                    <li>Propositions for optimizing telecom and GSM-R networks.</li>
+                                    <li data-i18n="intern-prof-task1">Analysis of railway planning systems and infrastructures.</li>
+                                    <li data-i18n="intern-prof-task2">Propositions for optimizing telecom and GSM-R networks.</li>
                                 </ul>
                                 <div class="timeline-tags">
-                                    <span class="tag">Telecommunications</span>
-                                    <span class="tag">Infrastructure Analysis</span>
-                                    <span class="tag">Network Optimization</span>
+                                    <span class="tag" data-i18n="tag-telecom">Telecommunications</span>
+                                    <span class="tag" data-i18n="tag-infra">Infrastructure Analysis</span>
+                                    <span class="tag" data-i18n="tag-network">Network Optimization</span>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +70,7 @@
                     <div class="project-cards">
                         <div class="project-detail-card">
                             <div class="project-detail-header">
-                                <h3>Pulmonary Embolism Detection</h3>
+                                <h3 data-i18n="project-pe">Pulmonary Embolism Detection</h3>
                                 <div class="project-detail-tags">
                                     <span class="tag">Python</span>
                                     <span class="tag">PyTorch</span>
@@ -79,7 +81,7 @@
                             </div>
                             <div class="project-detail-content">
                                 <ul>
-                                    <li>Developed a pipeline to classify pulmonary embolism cases using DICOM image data and machine learning.</li>
+                                    <li data-i18n="project-pe-desc">Developed a pipeline to classify pulmonary embolism cases using DICOM image data and machine learning.</li>
                                     <li>Achieved a test accuracy of 92.50% through effective training and validation procedures.</li>
                                     <li>Developed a Tkinter GUI for real-time image uploads and severity classification.</li>
                                 </ul>
@@ -88,7 +90,7 @@
                         
                         <div class="project-detail-card">
                             <div class="project-detail-header">
-                                <h3>Pneumonia Detection</h3>
+                                <h3 data-i18n="project-pn">Pneumonia Detection</h3>
                                 <div class="project-detail-tags">
                                     <span class="tag">Python</span>
                                     <span class="tag">PyTorch</span>
@@ -99,7 +101,7 @@
                             </div>
                             <div class="project-detail-content">
                                 <ul>
-                                    <li>Built a pneumonia detection model based on EfficientNet.</li>
+                                    <li data-i18n="project-pn-desc">Built a pneumonia detection model based on EfficientNet.</li>
                                     <li>Achieved a test accuracy of 87.05% through effective training and validation procedures.</li>
                                     <li>Developed a Tkinter GUI for real-time image uploads and severity classification.</li>
                                 </ul>
@@ -108,7 +110,7 @@
                         
                         <div class="project-detail-card">
                             <div class="project-detail-header">
-                                <h3>Image Recognition with Neural Networks</h3>
+                                <h3 data-i18n="project-ir">Image Recognition with Neural Networks</h3>
                                 <div class="project-detail-tags">
                                     <span class="tag">Python</span>
                                     <span class="tag">Mathematics</span>
@@ -116,7 +118,7 @@
                             </div>
                             <div class="project-detail-content">
                                 <ul>
-                                    <li>Implementation of a Multilayer Perceptron for handwritten digit classification.</li>
+                                    <li data-i18n="project-ir-desc">Implementation of a Multilayer Perceptron for handwritten digit classification.</li>
                                 </ul>
                             </div>
                         </div>

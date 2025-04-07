@@ -1,49 +1,65 @@
 // public/js/script.js
 document.addEventListener('DOMContentLoaded', function() {
     // Typewriter effect
-    const phrases = [
-        "Computer Engineering Student",
-        "AI Enthusiast",
-        "Problem Solver",
-        "Deep Learning Developer",
-        "IEEE Member"
-    ];
-    
-    let currentPhraseIndex = 0;
-    let currentCharIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
-    
-    function typeWriter() {
-        const currentPhrase = phrases[currentPhraseIndex];
-        const typewriter = document.querySelector('.typewriter');
+    const initTypewriter = () => {
+        // Get the current language
+        const currentLang = getCurrentLanguage();
         
-        if (isDeleting) {
-            typewriter.textContent = currentPhrase.substring(0, currentCharIndex - 1);
-            currentCharIndex--;
-            typingSpeed = 50;
-        } else {
-            typewriter.textContent = currentPhrase.substring(0, currentCharIndex + 1);
-            currentCharIndex++;
-            typingSpeed = 100;
+        // Define phrases based on selected language
+        const phrases = [
+            translations[currentLang]["computer-engineering-student"],
+            translations[currentLang]["ai-enthusiast"],
+            translations[currentLang]["problem-solver"],
+            translations[currentLang]["deep-learning-developer"],
+            translations[currentLang]["ieee-member"]
+        ];
+        
+        let currentPhraseIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        
+        function typeWriter() {
+            const currentPhrase = phrases[currentPhraseIndex];
+            const typewriter = document.querySelector('.typewriter');
+            
+            if (!typewriter) return;
+            
+            if (isDeleting) {
+                typewriter.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+                typingSpeed = 50;
+            } else {
+                typewriter.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+                typingSpeed = 100;
+            }
+            
+            if (!isDeleting && currentCharIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingSpeed = 1500; // Pause at the end
+            } else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before starting new phrase
+            }
+            
+            setTimeout(typeWriter, typingSpeed);
         }
         
-        if (!isDeleting && currentCharIndex === currentPhrase.length) {
-            isDeleting = true;
-            typingSpeed = 1500; // Pause at the end
-        } else if (isDeleting && currentCharIndex === 0) {
-            isDeleting = false;
-            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-            typingSpeed = 500; // Pause before starting new phrase
+        // Start the typewriter effect
+        if (document.querySelector('.typewriter')) {
+            typeWriter();
         }
-        
-        setTimeout(typeWriter, typingSpeed);
-    }
+    };
     
-    // Start the typewriter effect
-    if (document.querySelector('.typewriter')) {
-        typeWriter();
-    }
+    // Initialize the typewriter
+    initTypewriter();
+    
+    // When language changes, reset the typewriter
+    document.addEventListener('languageChanged', function(e) {
+        initTypewriter();
+    });
     
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
