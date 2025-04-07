@@ -1,9 +1,17 @@
 // Language switcher functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Default language
-    let currentLanguage = localStorage.getItem('language') || 'en';
+    // Force English as default language on first load
+    let currentLanguage = 'en';
+    
+    // Only use saved language if it's not the first load
+    if (localStorage.getItem('hasVisited')) {
+        currentLanguage = localStorage.getItem('language') || 'en';
+    } else {
+        localStorage.setItem('hasVisited', 'true');
+        localStorage.setItem('language', 'en');
+    }
 
-    // Initialize the page with the saved language
+    // Initialize the page with the language
     setLanguage(currentLanguage);
 
     // Add event listeners to language switcher buttons
@@ -20,6 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.dispatchEvent(new CustomEvent('languageChanged', { 
                     detail: { language: lang } 
                 }));
+
+                // Reload the page after a short delay to ensure all translations are applied
+                setTimeout(() => {
+                    window.location.reload();
+                }, 100);
             }
         }
     });

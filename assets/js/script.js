@@ -1,17 +1,12 @@
-// public/js/script.js
+ // public/js/script.js
 document.addEventListener('DOMContentLoaded', function() {
     // Typewriter effect
     const initTypewriter = () => {
-        // Get the current language
-        const currentLang = getCurrentLanguage();
         
         // Define phrases based on selected language
         const phrases = [
-            translations[currentLang]["computer-engineering-student"],
-            translations[currentLang]["ai-enthusiast"],
-            translations[currentLang]["problem-solver"],
-            translations[currentLang]["deep-learning-developer"],
-            translations[currentLang]["ieee-member"]
+            getCurrentLanguage() === 'fr' ? "Étudiant en Ingénierie Informatique" : "Computer Science Engineering Student",
+            getCurrentLanguage() === 'fr' ? "Ingénieur en Machine Learning" : "Machine Learning Engineer"
         ];
         
         let currentPhraseIndex = 0;
