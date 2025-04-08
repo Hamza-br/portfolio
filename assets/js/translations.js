@@ -15,7 +15,7 @@ const translations = {
         
         // Home page
         "hello-im": "Hello, I'm",
-        "hero-description": "Computer Engineering Student at AIAC | AI Enthusiast | Problem Solver",
+        "hero-description": "Computer Engineering Student at AIAC | AI Enthusiast | Seeking 2-Month Internship in Data Science, AI or Software Engineering | Passionate About Machine Learning, Data Analytics & AI Applications",
         "view-work": "View My Work",
         "contact-me": "Contact Me",
         
@@ -155,7 +155,7 @@ const translations = {
         
         // Home page
         "hello-im": "Bonjour, je suis",
-        "hero-description": "Étudiant en Génie Informatique à l'AIAC | Passionné d'IA | Résolveur de problèmes",
+        "hero-description": "Étudiant en Ingénierie Informatique à l'AIAC | Passionné d'IA | À la recherche d'un stage de 2 mois en Science des Données, IA ou Génie Logiciel | Passionné par le Machine Learning, l'Analyse de Données et les Applications d'IA",
         "view-work": "Voir mes travaux",
         "contact-me": "Me contacter",
         
