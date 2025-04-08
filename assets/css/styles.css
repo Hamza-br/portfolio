@@ -364,10 +364,64 @@ img {
     50% { opacity: 0; }
 }
 
+/* Burger Menu Styles */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+    position: relative;
+    width: 30px;
+    height: 25px;
+}
+
+.burger {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.burger::before,
+.burger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.burger::before {
+    top: -8px;
+}
+
+.burger::after {
+    bottom: -8px;
+}
+
+/* Burger Menu Animation */
+.nav-toggle.active .burger {
+    background-color: transparent;
+}
+
+.nav-toggle.active .burger::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle.active .burger::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
 /* Mobile Navigation */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 0 20px;
+    .nav-toggle {
+        display: block;
     }
 
     .nav-links {
@@ -376,7 +430,9 @@ img {
         left: 0;
         width: 100%;
         height: calc(100vh - var(--nav-height));
-        background: var(--background-color);
+        background: rgba(10, 25, 47, 0.98);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -384,20 +440,28 @@ img {
         transform: translateX(100%);
         transition: transform 0.3s ease;
         z-index: 999;
+        padding: 2rem;
     }
 
     .nav-links.active {
         transform: translateX(0);
     }
 
-    .nav-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--text-color);
-        font-size: 1.5rem;
-        cursor: pointer;
-        z-index: 1000;
+    .nav-links a {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary-color);
+        transform: translateX(10px);
+    }
+
+    .nav-links a::after {
+        display: none;
     }
 
     .hero-text h1 {
