@@ -1,5 +1,39 @@
- // public/js/script.js
+// public/js/script.js
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Navigation
+    function initMobileNav() {
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            const navItems = navLinks.querySelectorAll('a');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            });
+        }
+    }
+
+    // Initialize mobile navigation
+    initMobileNav();
+
     // Typewriter effect
     const initTypewriter = () => {
         
