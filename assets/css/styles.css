@@ -6,13 +6,20 @@
     --text-color: #8892b0;
     --heading-color: #ccd6f6;
     --nav-height: 70px;
+    /* Windows-specific variables */
+    --windows-scrollbar-width: 17px;
+    --windows-font-smoothing: grayscale;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
+    /* Windows-specific optimizations */
+    -webkit-font-smoothing: var(--windows-font-smoothing);
+    -moz-osx-font-smoothing: var(--windows-font-smoothing);
+    text-rendering: optimizeLegibility;
 }
 
 body {
@@ -20,9 +27,190 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    -webkit-font-smoothing: antialiased; /* Improve text rendering on mobile */
+    overflow-x: hidden;
+    /* Windows-specific optimizations */
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent text size adjustment */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Windows-specific scrollbar styling */
+::-webkit-scrollbar {
+    width: var(--windows-scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+    border-radius: 8px;
+    border: 3px solid var(--background-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Windows-specific font rendering improvements */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Windows-specific button and interactive element improvements */
+button, 
+.cta-button,
+.project-link,
+.filter-btn {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Improve click target size for Windows touch devices */
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    /* Add subtle hover effect for Windows */
+    transition: all 0.2s ease;
+}
+
+button:hover,
+.cta-button:hover,
+.project-link:hover,
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Windows-specific form element improvements */
+input, textarea, select {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent zoom on Windows touch devices */
+    font-size: 16px;
+    /* Improve touch target size */
+    padding: 0.8rem;
+    /* Add subtle focus effect */
+    transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: 2px solid var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 255, 157, 0.2);
+}
+
+/* Windows-specific animation improvements */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+    /* Add hardware acceleration for smoother animations on Windows */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Windows-specific layout improvements */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    /* Add hardware acceleration for smoother scrolling on Windows */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Windows-specific image optimizations */
+img {
+    /* Improve image rendering on Windows */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* Add hardware acceleration for smoother image loading */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Windows-specific navigation improvements */
+.navbar {
+    /* Add hardware acceleration for smoother scrolling */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    /* Improve backdrop filter performance */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Windows-specific responsive design improvements */
+@media (max-width: 1024px) {
+    /* Adjust for Windows tablet devices */
+    .section-container {
+        padding: 80px 20px;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjust for Windows mobile devices */
+    .section-container {
+        padding: 60px 15px;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Improve touch targets for Windows touch devices */
+    .nav-links a,
+    .social-links a {
+        padding: 0.8rem;
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Windows-specific performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Windows-specific high contrast mode support */
+@media (forced-colors: active) {
+    :root {
+        --primary-color: Highlight;
+        --text-color: CanvasText;
+        --background-color: Canvas;
+        --heading-color: CanvasText;
+    }
+    
+    .cta-button {
+        border: 2px solid Highlight;
+    }
+    
+    .nav-links a:hover {
+        color: Highlight;
+    }
 }
 
 /* Navigation Styles */
