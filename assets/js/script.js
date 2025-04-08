@@ -13,20 +13,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Burger menu functionality
+    // Mobile Navigation
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
 
     if (navToggle && navLinks) {
         navToggle.addEventListener('click', function() {
             this.classList.toggle('active');
             navLinks.classList.toggle('active');
             
-            // Prevent scrolling when menu is open
+            // Toggle body scroll
             if (navLinks.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
+                body.style.overflow = 'hidden';
             } else {
-                document.body.style.overflow = '';
+                body.style.overflow = '';
             }
         });
 
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 !navLinks.contains(event.target)) {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
-                document.body.style.overflow = '';
+                body.style.overflow = '';
             }
         });
 
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', function() {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
-                document.body.style.overflow = '';
+                body.style.overflow = '';
             });
         });
     }
