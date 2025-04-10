@@ -1,6 +1,11 @@
 // Language translations for the website
 const translations = {
     en: {
+        // Common UI elements
+        "switching-language": "Switching Language...",
+        "page-title": "Hamza Bourou - Portfolio",
+        "loading": "Loading...",
+        
         // Header
         "nav-home": "Home",
         "nav-about": "About",
@@ -141,6 +146,11 @@ const translations = {
         "cert-cisco": "Cisco - CCNAv7: Introduction to Networks"
     },
     fr: {
+        // Common UI elements
+        "switching-language": "Changement de langue...",
+        "page-title": "Hamza Bourou - Portfolio",
+        "loading": "Chargement...",
+        
         // Header
         "nav-home": "Accueil",
         "nav-about": "À propos",

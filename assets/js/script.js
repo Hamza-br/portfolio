@@ -1,5 +1,8 @@
 // public/js/script.js
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure viewport is correctly set for mobile
+    refreshViewport();
+    
     // Check if browser supports required features
     if (!('IntersectionObserver' in window)) {
         console.warn('IntersectionObserver not supported');
@@ -10,44 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.skill-level').forEach(skill => {
             const level = skill.dataset.level;
             skill.style.setProperty('--level', `${level}%`);
-        });
-    }
-
-    // Burger menu functionality
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            
-            // Prevent scrolling when menu is open
-            if (navLinks.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (navLinks.classList.contains('active') && 
-                !navToggle.contains(event.target) && 
-                !navLinks.contains(event.target)) {
-                navToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close menu when clicking on a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-                navToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-            });
         });
     }
 
@@ -305,3 +270,163 @@ try {
 } catch (error) {
     console.error('Email form initialization failed:', error);
 }
+
+// Refresh viewport for mobile devices
+function refreshViewport() {
+    // Set the viewport meta tag to ensure proper scaling on mobile devices
+    const viewportMeta = document.querySelector('meta[name="viewport"]');
+    if (viewportMeta) {
+        // Force the browser to re-evaluate the viewport meta tag
+        viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+    }
+}
+
+// Add event listeners to all navigation links to refresh viewport on navigation
+document.addEventListener('DOMContentLoaded', function() {
+    // Add page transition element
+    const pageTransition = document.createElement('div');
+    pageTransition.className = 'page-transition';
+    document.body.appendChild(pageTransition);
+    
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('a[href$=".html"]');
+    
+    // Add click event listener to each link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Store the href
+            const href = this.getAttribute('href');
+            
+            // Only handle internal navigation
+            if (href && href.endsWith('.html')) {
+                // Store the URL to navigate to
+                const url = this.href;
+                
+                // Prevent default navigation
+                e.preventDefault();
+                
+                // Refresh the viewport
+                refreshViewport();
+                
+                // Add transition class to body
+                document.body.classList.add('page-transitioning');
+                
+                // Navigate to the URL after the transition animation
+                setTimeout(function() {
+                    window.location.href = url;
+                }, 500);
+            }
+        });
+    });
+});
+
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Setting up mobile menu");
+    const mobileMenuToggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
+    const body = document.body;
+    
+    if (mobileMenuToggle && navLinks) {
+        console.log("Mobile menu elements found");
+        
+        // Directly add click event to the mobile toggle button
+        mobileMenuToggle.onclick = function(e) {
+            console.log("Mobile toggle clicked");
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Toggle aria-expanded attribute
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            
+            // Toggle menu visibility
+            navLinks.classList.toggle('active');
+            
+            // Toggle body scroll
+            body.classList.toggle('menu-open');
+            
+            // Log the toggle state for debugging
+            console.log("Menu is now:", navLinks.classList.contains('active') ? "open" : "closed");
+            
+            return false;
+        };
+        
+        // Keep track of focused element before opening menu
+        let lastFocusedElement;
+        
+        // Get current page URL to highlight/hide active link
+        let currentPage = window.location.pathname.split('/').pop();
+        
+        // Handle empty paths or root URLs
+        if (!currentPage || currentPage === "") {
+            currentPage = "index.html";
+        }
+        
+        // Find and mark the link for the current page
+        navItems.forEach(item => {
+            const itemPage = item.getAttribute('href');
+            // Compare current page with the link's href
+            if (itemPage === currentPage || 
+                (currentPage === "index.html" && itemPage === "") ||
+                (currentPage === "index.html" && itemPage === "#") ||
+                (currentPage === "index.html" && itemPage === "/")) {
+                // Mark the current page and hide it in mobile menu
+                item.parentElement.classList.add('current-page');
+                item.setAttribute('aria-current', 'page');
+            }
+        });
+        
+        // Close menu when clicking on a navigation link
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+                    // Only run on mobile and only if menu is open
+                    console.log("Navigation link clicked, closing menu");
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    navLinks.classList.remove('active');
+                    body.classList.remove('menu-open');
+                }
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (navLinks.classList.contains('active')) {
+                const isClickInsideNav = navLinks.contains(event.target);
+                const isClickOnToggle = mobileMenuToggle.contains(event.target);
+                
+                if (!isClickInsideNav && !isClickOnToggle) {
+                    console.log("Clicked outside menu, closing it");
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    navLinks.classList.remove('active');
+                    body.classList.remove('menu-open');
+                }
+            }
+        });
+        
+        // Add escape key to close menu
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                console.log("Escape key pressed, closing menu");
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+        
+        // Resize handler to reset menu state when window is resized
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                // Reset menu when resizing up to desktop
+                console.log("Window resized, resetting menu");
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+    } else {
+        console.warn("Mobile menu elements not found");
+    }
+});

@@ -1,33 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamza Bourou - Portfolio</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
-    <script src="assets/js/script.js"></script>
-</head>
-<body>
-    <nav class="navbar">
+<nav class="navbar">
+    <div class="nav-container">
         <div class="nav-brand">
-            <a href="index.html" data-i18n="nav-home">Home</a>
+            <a href="index.html"><i class="fas fa-home"></i></a>
         </div>
         <div class="palestine-flag">
+            <div class="palestine-flag-texture"></div>
             <div class="flag-container"></div>
-            <span class="free-palestine">Free Palestine</span>
+            <a href="https://boycott-israel.org/boycott.html" target="_blank" rel="noopener noreferrer" class="free-palestine">Free Palestine</a>
         </div>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
-            <div class="burger"></div>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); document.getElementById('primary-navigation').classList.toggle('active'); document.body.classList.toggle('menu-open');">
+            <span class="hamburger-icon">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </span>
         </button>
-        <ul class="nav-links">
-            <li><a href="index.html" data-i18n="nav-home">Home</a></li>
-            <li><a href="about.html" data-i18n="nav-about">About</a></li>
-            <li><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
-            <li><a href="experience.html" data-i18n="nav-experience">Experience</a></li>
-            <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+        <ul id="primary-navigation" class="nav-links" role="menu">
+            <div class="menu-particles">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="circle-glow"></div>
+            </div>
+            <li role="none">
+                <div class="nav-item-wrapper">
+                    <a href="index.html" role="menuitem" data-i18n="nav-home"><i class="fas fa-home nav-icon"></i>Home</a>
+                </div>
+            </li>
+            <li role="none">
+                <div class="nav-item-wrapper">
+                    <a href="about.html" role="menuitem" data-i18n="nav-about"><i class="fas fa-user nav-icon"></i>About</a>
+                </div>
+            </li>
+            <li role="none">
+                <div class="nav-item-wrapper">
+                    <a href="projects.html" role="menuitem" data-i18n="nav-projects"><i class="fas fa-code nav-icon"></i>Projects</a>
+                </div>
+            </li>
+            <li role="none">
+                <div class="nav-item-wrapper">
+                    <a href="experience.html" role="menuitem" data-i18n="nav-experience"><i class="fas fa-briefcase nav-icon"></i>Experience</a>
+                </div>
+            </li>
+            <li role="none">
+                <div class="nav-item-wrapper">
+                    <a href="contact.html" role="menuitem" data-i18n="nav-contact"><i class="fas fa-envelope nav-icon"></i>Contact</a>
+                </div>
+            </li>
         </ul>
-    </nav>
-</body>
-</html> 
+    </div>
+</nav>
+
+<script>
+// Ensure the mobile menu toggle works immediately
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-nav-toggle');
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const navLinks = document.getElementById('primary-navigation');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+    }
+    
+    // Add current page indicator
+    const currentPath = window.location.pathname;
+    const filename = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (linkPath === filename || 
+            (filename === '' && linkPath === 'index.html') || 
+            (filename === '/' && linkPath === 'index.html')) {
+            link.classList.add('active-link');
+            link.closest('li').classList.add('current-page');
+        }
+    });
+});
+</script> 

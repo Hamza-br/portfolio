@@ -58,6 +58,11 @@ function includeHTML() {
                         }
                     });
                 }
+                
+                // Refresh the viewport after including HTML
+                if (typeof refreshViewport === 'function') {
+                    refreshViewport();
+                }
             })
             .catch(error => {
                 console.error(`Error including HTML file ${file}:`, error);

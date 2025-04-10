@@ -3,9 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create loading indicator
     const loadingIndicator = document.createElement('div');
     loadingIndicator.className = 'language-switcher-loading';
+    loadingIndicator.setAttribute('role', 'alert');
+    loadingIndicator.setAttribute('aria-live', 'assertive');
     loadingIndicator.innerHTML = `
         <div class="spinner"></div>
-        <div class="loading-text" data-i18n="switching-language">Switching Language</div>
+        <div class="loading-text" data-i18n="switching-language">Switching Language...</div>
     `;
     document.body.appendChild(loadingIndicator);
 
@@ -18,6 +20,17 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         localStorage.setItem('hasVisited', 'true');
         localStorage.setItem('language', 'en');
+        
+        // Check if we should use browser language
+        try {
+            const browserLang = navigator.language.substring(0, 2).toLowerCase();
+            if (translations[browserLang]) {
+                currentLanguage = browserLang;
+                localStorage.setItem('language', browserLang);
+            }
+        } catch (e) {
+            console.warn('Could not detect browser language:', e);
+        }
     }
 
     // Initialize the page with the language
@@ -93,6 +106,11 @@ function setLanguage(lang) {
             btn.classList.remove('active');
         }
     });
+    
+    // Update page title
+    if (translations[lang]['page-title']) {
+        document.title = translations[lang]['page-title'];
+    }
     
     // Update all translatable elements with improved fallback behavior
     document.querySelectorAll('[data-i18n]').forEach(element => {
