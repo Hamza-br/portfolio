@@ -28,7 +28,14 @@ A modern, responsive personal portfolio website built with HTML, CSS, and JavaSc
 
 ## Deployment
 
-This is a static website is hosted on GitHub Pages
+This static website is hosted on **Amazon Web Services (AWS)** using:
+- **Amazon S3** for static site hosting
+- **Amazon CloudFront** for CDN and HTTPS support
+- **Route 53** for custom domain DNS management
+
+### 🌐 Live Website: [https://bourouhamza.engineer](https://bourouhamza.engineer)
+
+
   
 ## License
 
